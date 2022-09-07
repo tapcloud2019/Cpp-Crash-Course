@@ -24,7 +24,7 @@
     <ProjectGuid>{d6ced37e-6ce8-43ac-b08a-9b7337be4bff}</ProjectGuid>
     <RootNamespace>CppCrashCourse</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>10-Testing</ProjectName>
+    <ProjectName>3-RefTypes</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -132,9 +132,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="AutoBrake.h" />
-    <ClInclude Include="Bus.h" />
-    <ClInclude Include="SpeedCarBrake.h" />
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ClockOfTheLongNow.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
