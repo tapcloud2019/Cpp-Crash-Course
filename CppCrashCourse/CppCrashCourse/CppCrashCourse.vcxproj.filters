@@ -23,5 +23,8 @@
     <ClInclude Include="ClockOfTheLongNow.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="College.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,15 +1,24 @@
 #include <cstdio>
 #include "ClockOfTheLongNow.h"
+#include "College.h"
 
 void Listing3_1();
 void Listing3_2();
 void Listing3_3();
+void Listing3_4();
 
 int main()
 {
-	Listing3_3();
+	Listing3_4();
 	
 	return 0;
+}
+
+void Listing3_4()
+{
+	College best_colleges[] = { "NTU","NUS","SMU" };
+
+	print_name(best_colleges);
 }
 
 void Listing3_3()
