@@ -6,12 +6,20 @@ void Listing3_1();
 void Listing3_2();
 void Listing3_3();
 void Listing3_4();
+void Listing3_5();
 
 int main()
 {
-	Listing3_4();
+	Listing3_5();
 	
 	return 0;
+}
+
+void Listing3_5()
+{
+	College polytechnics[] = { "Ngee Ann", "Nanyang", "Temasek", "Singapore"};
+
+	print_names(polytechnics, sizeof(polytechnics) / sizeof(College));
 }
 
 void Listing3_4()
