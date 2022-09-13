@@ -7,12 +7,28 @@ void Listing3_2();
 void Listing3_3();
 void Listing3_4();
 void Listing3_5();
+void Listing3_7();
 
 int main()
 {
-	Listing3_5();
+	Listing3_7();
 	
 	return 0;
+}
+
+void Listing3_7()
+{
+	char lower[] = "abc?e";
+	char upper[] = "ABC?E";
+	char* upper_ptr = upper; //same as &upper[0]
+
+	*(lower + 3) = 'd';
+	*(upper_ptr + 3) = 'D';
+
+	char letter_d = *(lower + 3);
+	char letter_D = *(upper_ptr + 3);
+
+	printf("lower: %s\nupper: %s\n", lower, upper);
 }
 
 void Listing3_5()
