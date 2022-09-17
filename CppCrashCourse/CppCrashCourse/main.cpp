@@ -8,12 +8,22 @@ void Listing3_3();
 void Listing3_4();
 void Listing3_5();
 void Listing3_7();
+void Listing3_8();
 
 int main()
 {
-	Listing3_7();
+	Listing3_8();
 	
 	return 0;
+}
+
+void Listing3_8()
+{
+	ClockOfTheLongNow clock;
+	clock.set_year(2022);
+	printf("The year is %d.\n", clock.get_year());
+	add_year(clock);
+	printf("The year is %d.\n", clock.get_year());
 }
 
 void Listing3_7()

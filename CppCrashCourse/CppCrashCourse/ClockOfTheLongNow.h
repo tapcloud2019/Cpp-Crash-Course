@@ -23,3 +23,8 @@ struct ClockOfTheLongNow
 private:
 	int year;
 };
+
+void add_year(ClockOfTheLongNow& clock)
+{
+	clock.set_year(clock.get_year() + 1);
+}
