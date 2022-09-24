@@ -137,6 +137,7 @@
   <ItemGroup>
     <ClInclude Include="ClockOfTheLongNow.h" />
     <ClInclude Include="College.h" />
+    <ClInclude Include="Element.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
