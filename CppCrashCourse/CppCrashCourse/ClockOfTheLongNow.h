@@ -7,10 +7,10 @@ struct ClockOfTheLongNow
 		year++;
 	}
 
-	bool set_year(int new_year)
+	bool set_year(int year)
 	{
-		if (new_year < 2019) return false;
-		year = new_year;
+		if (year < 2019) return false;
+		this->year = year;
 
 		return true;
 	}

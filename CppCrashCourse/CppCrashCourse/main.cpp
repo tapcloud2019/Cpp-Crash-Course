@@ -11,12 +11,27 @@ void Listing3_5();
 void Listing3_7();
 void Listing3_8();
 void Listing3_10();
+void Listing3_11();
 
 int main()
 {
-	Listing3_10();
+	Listing3_11();
 	
 	return 0;
+}
+
+void Listing3_11()
+{
+	int original = 100;
+	int& original_ref = original;
+	printf("Original: %d\n", original);
+	printf("Original ref: %d\n", original_ref);
+
+	int new_value = 200;
+	original_ref = new_value; //reference is not reseated; 200 is assigned to the obj the ref points to
+	printf("Original: %d\n", original);
+	printf("New value: %d\n", new_value);
+	printf("Reference: %d\n", original_ref);
 }
 
 void Listing3_10()
