@@ -2,6 +2,7 @@
 #include "ClockOfTheLongNow.h"
 #include "College.h"
 #include "Element.h"
+#include "Avout.h"
 
 void Listing3_1();
 void Listing3_2();
@@ -12,12 +13,21 @@ void Listing3_7();
 void Listing3_8();
 void Listing3_10();
 void Listing3_11();
+void Listing3_18();
 
 int main()
 {
-	Listing3_11();
+	Listing3_18();
 	
 	return 0;
+}
+
+void Listing3_18()
+{
+	Avout raz{ "Eramas", 3010 };
+	Avout jad{ "Jad", 4000 };
+	raz.announce();
+	jad.announce();
 }
 
 void Listing3_11()
