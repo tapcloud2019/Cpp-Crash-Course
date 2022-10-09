@@ -14,12 +14,61 @@ void Listing3_8();
 void Listing3_10();
 void Listing3_11();
 void Listing3_18();
+void Question3_3();
 
 int main()
 {
-	Listing3_18();
+	Question3_3();
 	
 	return 0;
+}
+
+void Question3_3()
+{
+	Element trooper1, trooper2, trooper3;
+	trooper1.prefix[0] = 'W';
+	trooper1.prefix[1] = 'C';
+	trooper1.operating_number = 421;
+	trooper1.insert_after(&trooper2);
+
+	trooper2.prefix[0] = 'A';
+	trooper2.prefix[1] = 'H';
+	trooper2.operating_number = 2187;
+	trooper2.insert_after(&trooper3);
+
+	trooper3.prefix[0] = 'B';
+	trooper3.prefix[1] = 'M';
+	trooper3.operating_number = 005;
+
+	Element trooper4;
+	trooper2.insert_after(&trooper4);
+	trooper4.prefix[0] = 'J';
+	trooper4.prefix[1] = 'S';
+	trooper4.operating_number = 123;
+
+	Element trooper0;
+	trooper1.insert_before(&trooper0);
+	trooper0.prefix[0] = 'E';
+	trooper0.prefix[1] = 'H';
+	trooper0.operating_number = 5121;
+
+	Element trooper5;
+	trooper3.insert_before(&trooper5);
+	trooper5.prefix[0] = 'F';
+	trooper5.prefix[1] = 'R';
+	trooper5.operating_number = 315;
+
+	printf("Iterating forward:\n");
+	for (Element* cursor = &trooper0; cursor; cursor = cursor->next)
+	{
+		printf("stormtrooper %c%c - %d\n", cursor->prefix[0], cursor->prefix[1], cursor->operating_number);
+	}
+
+	printf("\n\nIterating backward:\n");
+	for (Element* cursor = &trooper3; cursor; cursor = cursor->previous)
+	{
+		printf("stormtrooper %c%c - %d\n", cursor->prefix[0], cursor->prefix[1], cursor->operating_number);
+	}
 }
 
 void Listing3_18()
