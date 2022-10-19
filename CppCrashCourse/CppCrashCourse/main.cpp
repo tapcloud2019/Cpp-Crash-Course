@@ -14,12 +14,15 @@ void Listing3_8();
 void Listing3_10();
 void Listing3_11();
 void Listing3_18();
+void Question3_2();
+char Question3_2_ReadFrom(char*, int);
+void Question3_2_WriteTo(char*, int, char);
 void Question3_3();
 void Question3_4();
 
 int main()
 {
-	Question3_4();
+	Question3_2();
 	
 	return 0;
 }
@@ -84,6 +87,44 @@ void Question3_3()
 	{
 		printf("stormtrooper %c%c - %d\n", cursor->prefix[0], cursor->prefix[1], cursor->operating_number);
 	}
+}
+
+void Question3_2()
+{
+	char lower[] = "abc?e";
+	char upper[] = "ABC?E";
+	char* upper_ptr = upper; //same as &upper[0]
+
+	lower[3] = 'd';
+	upper_ptr[3] = 'D'; //same as *(upper_ptr + 3)
+
+	printf("lower: %s\n", lower);
+	printf("upper: %s\n", upper);
+
+	char letter = Question3_2_ReadFrom(upper, 1);
+	printf("letter:%c\n", letter);
+	
+	letter = Question3_2_ReadFrom(lower, 4);
+	printf("letter:%c\n", letter);
+
+	Question3_2_WriteTo(upper, 0, 'Z');
+	printf("upper: %s\n", upper);
+}
+
+char Question3_2_ReadFrom(char* str, int index)
+{
+	if (index > 4)
+		return '0';
+
+	return *(str + index);
+}
+
+void Question3_2_WriteTo(char* str, int index, char letter)
+{
+	if (index > 4)
+		return;
+
+	str[index] = letter;
 }
 
 void Listing3_18()
