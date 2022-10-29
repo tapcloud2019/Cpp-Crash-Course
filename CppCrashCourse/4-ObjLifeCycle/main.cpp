@@ -2,12 +2,33 @@
 
 void power_up_rat_thing(int);
 void Listing4_2();
+void power_up_rat_thing2(int);
+void Listing4_3();
 
 static int rat_things_power = 200;
 
 int main()
 {
-	Listing4_2();
+	Listing4_3();
+}
+
+void Listing4_3()
+{
+	power_up_rat_thing2(100);
+	power_up_rat_thing2(500);
+}
+
+void power_up_rat_thing2(int nuclear_isotopes)
+{
+	static int rat_things_power2 = 200;
+	rat_things_power2 += nuclear_isotopes;
+
+	const auto waste_heat = rat_things_power2 * 20;
+
+	if (waste_heat > 10000)
+		printf("Warning! Hot doggie!\n");
+
+	printf("Rat-thing power2: %d\n", rat_things_power2);
 }
 
 void Listing4_2()
