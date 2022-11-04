@@ -1,15 +1,24 @@
 #include <cstdio>
+#include "RatThing.h"
 
 void power_up_rat_thing(int);
 void Listing4_2();
 void power_up_rat_thing2(int);
 void Listing4_3();
+void Listing4_4();
 
 static int rat_things_power = 200;
+int RatThing::rat_things_power3 = 200;
 
 int main()
 {
-	Listing4_3();
+	Listing4_4();
+}
+
+void Listing4_4()
+{
+	RatThing::power_up_rat_thing3(100);
+	RatThing::power_up_rat_thing3(500);
 }
 
 void Listing4_3()
