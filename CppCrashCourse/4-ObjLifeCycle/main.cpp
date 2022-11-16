@@ -1,18 +1,33 @@
 #include <cstdio>
 #include "RatThing.h"
+#include "Tracer.h"
 
 void power_up_rat_thing(int);
 void Listing4_2();
 void power_up_rat_thing2(int);
 void Listing4_3();
 void Listing4_4();
+void Listing4_6();
 
 static int rat_things_power = 200;
 int RatThing::rat_things_power3 = 200;
+static Tracer t1{ "Static variable" };
+thread_local Tracer t2{ "Thread-local variable" };
 
 int main()
 {
-	Listing4_4();
+	Listing4_6();
+}
+
+void Listing4_6()
+{
+	const auto t2_ptr = &t2;
+	printf("A\n");
+	Tracer t3{ "Automatic variable" };
+	printf("B\n");
+	const auto* t4 = new Tracer{ "Dynamic variable" };
+	printf("C\n");
+	delete t4;
 }
 
 void Listing4_4()
