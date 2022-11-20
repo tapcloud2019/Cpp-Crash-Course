@@ -1,6 +1,8 @@
 #include <cstdio>
+#include <stdexcept>
 #include "RatThing.h"
 #include "Tracer.h"
+#include "groucho.h"
 
 void power_up_rat_thing(int);
 void Listing4_2();
@@ -8,6 +10,7 @@ void power_up_rat_thing2(int);
 void Listing4_3();
 void Listing4_4();
 void Listing4_6();
+void Listing4_9();
 
 static int rat_things_power = 200;
 int RatThing::rat_things_power3 = 200;
@@ -16,7 +19,23 @@ thread_local Tracer t2{ "Thread-local variable" };
 
 int main()
 {
-	Listing4_6();
+	Listing4_9();
+}
+
+void Listing4_9()
+{
+	Groucho groucho;
+	
+	try
+	{
+		groucho.forget(0xC0DE);
+		groucho.forget(0xFACE);
+		groucho.forget(0xC0FFEE);
+	}
+	catch (const std::runtime_error& e)
+	{
+		printf("Exception caught with message: %s\n", e.what());
+	}
 }
 
 void Listing4_6()
