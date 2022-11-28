@@ -29,5 +29,8 @@
     <ClInclude Include="groucho.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="CyberdyneSeries800.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

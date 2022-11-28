@@ -3,6 +3,7 @@
 #include "RatThing.h"
 #include "Tracer.h"
 #include "groucho.h"
+#include "CyberdyneSeries800.h"
 
 void power_up_rat_thing(int);
 void Listing4_2();
@@ -11,6 +12,7 @@ void Listing4_3();
 void Listing4_4();
 void Listing4_6();
 void Listing4_9();
+void Listing4_13();
 
 static int rat_things_power = 200;
 int RatThing::rat_things_power3 = 200;
@@ -19,7 +21,21 @@ thread_local Tracer t2{ "Thread-local variable" };
 
 int main()
 {
-	Listing4_9();
+	Listing4_13();
+}
+
+void Listing4_13()
+{
+	try
+	{
+		CyberdyneSeries800 t800;
+		
+		throw std::runtime_error{ "Come with me if you want to live.\n" };
+	}
+	catch (const std::exception& e)
+	{
+		printf("Caught exception:%s\n", e.what());
+	}
 }
 
 void Listing4_9()

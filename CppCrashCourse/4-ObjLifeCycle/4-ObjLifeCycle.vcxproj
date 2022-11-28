@@ -134,6 +134,7 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CyberdyneSeries800.h" />
     <ClInclude Include="groucho.h" />
     <ClInclude Include="RatThing.h" />
     <ClInclude Include="Tracer.h" />
