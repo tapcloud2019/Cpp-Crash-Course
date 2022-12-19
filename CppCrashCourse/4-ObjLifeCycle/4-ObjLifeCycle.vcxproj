@@ -137,6 +137,7 @@
     <ClInclude Include="CyberdyneSeries800.h" />
     <ClInclude Include="groucho.h" />
     <ClInclude Include="RatThing.h" />
+    <ClInclude Include="SimpleString.h" />
     <ClInclude Include="Tracer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
