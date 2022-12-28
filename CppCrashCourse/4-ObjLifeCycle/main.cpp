@@ -4,6 +4,7 @@
 #include "Tracer.h"
 #include "groucho.h"
 #include "CyberdyneSeries800.h"
+#include "SimpleString.h"
 
 void power_up_rat_thing(int);
 void Listing4_2();
@@ -13,6 +14,7 @@ void Listing4_4();
 void Listing4_6();
 void Listing4_9();
 void Listing4_13();
+void Listing4_16();
 
 static int rat_things_power = 200;
 int RatThing::rat_things_power3 = 200;
@@ -21,7 +23,25 @@ thread_local Tracer t2{ "Thread-local variable" };
 
 int main()
 {
-	Listing4_13();
+	Listing4_16();
+}
+
+void Listing4_16()
+{
+	SimpleString string{ 115 };
+
+	string.append_line("Starbuck,whaddya hear?");
+	string.append_line("Nothin'but the rain.");
+	string.print("A");
+
+	string.append_line("Grab your gun and bring the cat in");
+	string.append_line("Aye-aye sir, coming home.");
+	string.print("B");
+
+	if (!string.append_line("Galatica!"))
+	{
+		printf("String was not big enough to append another message\n\n");
+	}
 }
 
 void Listing4_13()
