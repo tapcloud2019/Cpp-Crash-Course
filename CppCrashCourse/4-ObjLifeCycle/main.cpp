@@ -15,6 +15,10 @@ void Listing4_6();
 void Listing4_9();
 void Listing4_13();
 void Listing4_16();
+void Listing4_19();
+void fn_b();
+void fn_c();
+void Listing4_21();
 
 static int rat_things_power = 200;
 int RatThing::rat_things_power3 = 200;
@@ -23,7 +27,27 @@ thread_local Tracer t2{ "Thread-local variable" };
 
 int main()
 {
-	Listing4_16();
+	Listing4_21();
+}
+
+void Listing4_21()
+{
+	try
+	{
+		SimpleStringOwner a{ "a" };
+		fn_b();
+		SimpleStringOwner d{ "d" };
+	}
+	catch (const std::exception& e)
+	{
+		printf("Exception: %s\n", e.what());
+	}
+}
+
+void Listing4_19()
+{
+	SimpleStringOwner x{ "x" };
+	printf("x is alive\n");
 }
 
 void Listing4_16()
@@ -130,4 +154,15 @@ void power_up_rat_thing(int nuclear_isotopes)
 	{
 		printf("Warning! Hot doggie\n");
 	}
+}
+
+void fn_c()
+{
+	SimpleStringOwner c{ "cccccccccc" };
+}
+
+void fn_b()
+{
+	SimpleStringOwner b{ "b" };
+	fn_c();
 }

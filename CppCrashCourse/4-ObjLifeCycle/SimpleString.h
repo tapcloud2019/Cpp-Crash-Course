@@ -46,3 +46,22 @@ private:
 	char* buffer;
 	size_t length;
 };
+
+struct SimpleStringOwner
+{
+	SimpleStringOwner(const char* x) : string{ 10 }
+	{
+		if (!string.append_line(x))
+			throw std::runtime_error{ "Not enough memory!" };
+
+		string.print("Constructed");
+	}
+
+	~SimpleStringOwner()
+	{
+		string.print("About to destroy");
+	}
+
+private:
+	SimpleString string;
+};
