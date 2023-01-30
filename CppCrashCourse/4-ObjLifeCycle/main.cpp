@@ -19,6 +19,7 @@ void Listing4_19();
 void fn_b();
 void fn_c();
 void Listing4_21();
+void Listing4_26();
 
 static int rat_things_power = 200;
 int RatThing::rat_things_power3 = 200;
@@ -27,7 +28,20 @@ thread_local Tracer t2{ "Thread-local variable" };
 
 int main()
 {
-	Listing4_21();
+	Listing4_26();
+}
+
+void Listing4_26()
+{
+	SimpleString a{ 50 };
+	a.append_line("We apologise for the");
+
+	SimpleString a_copy{ a }; //initialise copy constructor
+
+	a.append_line("inconvenience.");
+	a_copy.append_line("incontinence.");
+	a.print("a");
+	a_copy.print("a_copy");
 }
 
 void Listing4_21()

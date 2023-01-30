@@ -15,6 +15,14 @@ struct SimpleString
 		buffer[0] = 0;
 	}
 
+	//copy constructor
+	SimpleString(const SimpleString& other) : max_size{other.max_size},
+												buffer{new char[other.max_size]},
+												length{other.length}
+	{
+		std::strncpy(buffer, other.buffer, max_size);
+	}
+
 	~SimpleString()
 	{
 		delete[] buffer;
