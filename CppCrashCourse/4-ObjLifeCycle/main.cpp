@@ -20,6 +20,7 @@ void fn_b();
 void fn_c();
 void Listing4_21();
 void Listing4_26();
+void Listing4_31();
 
 static int rat_things_power = 200;
 int RatThing::rat_things_power3 = 200;
@@ -28,7 +29,24 @@ thread_local Tracer t2{ "Thread-local variable" };
 
 int main()
 {
-	Listing4_26();
+	Listing4_31();
+}
+
+void Listing4_31()
+{
+	SimpleString a{ 50 };
+	a.append_line("We apologise for the");
+
+	SimpleString b{ 50 };
+	b.append_line("Last message");
+
+	a.print("a");
+	b.print("b");
+
+	b = a; //copy assignment operator
+
+	a.print("a");
+	b.print("b");
 }
 
 void Listing4_26()

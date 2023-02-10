@@ -23,6 +23,23 @@ struct SimpleString
 		std::strncpy(buffer, other.buffer, max_size);
 	}
 
+	//copy assignment operator
+	SimpleString& operator=(const SimpleString& other)
+	{
+		if (this == &other) return *this; //good practice
+
+		const auto new_buffer = new char[other.max_size];
+		delete[] buffer;
+		buffer = new_buffer;
+
+		length = other.length;
+		max_size = other.max_size;
+
+		std::strncpy(buffer, other.buffer, max_size);
+
+		return *this;
+	}
+
 	~SimpleString()
 	{
 		delete[] buffer;
