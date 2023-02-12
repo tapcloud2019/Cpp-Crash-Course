@@ -21,6 +21,9 @@ void fn_c();
 void Listing4_21();
 void Listing4_26();
 void Listing4_31();
+void Listing4_33();
+void ref_type(int&);
+void ref_type(int&&);
 
 static int rat_things_power = 200;
 int RatThing::rat_things_power3 = 200;
@@ -29,7 +32,15 @@ thread_local Tracer t2{ "Thread-local variable" };
 
 int main()
 {
-	Listing4_31();
+	Listing4_33();
+}
+
+void Listing4_33()
+{
+	auto x = 1;
+	ref_type(x);
+	ref_type(2);
+	ref_type(x + 2);
 }
 
 void Listing4_31()
@@ -197,4 +208,14 @@ void fn_b()
 {
 	SimpleStringOwner b{ "b" };
 	fn_c();
+}
+
+void ref_type(int& x)
+{
+	printf("lvalue reference %d\n", x);
+}
+
+void ref_type(int&& x)
+{
+	printf("rvalue reference %d\n", x);
 }
