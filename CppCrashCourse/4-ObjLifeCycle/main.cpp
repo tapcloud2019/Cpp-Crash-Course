@@ -24,6 +24,7 @@ void Listing4_31();
 void Listing4_33();
 void ref_type(int&);
 void ref_type(int&&);
+void Listing4_37();
 
 static int rat_things_power = 200;
 int RatThing::rat_things_power3 = 200;
@@ -32,7 +33,22 @@ thread_local Tracer t2{ "Thread-local variable" };
 
 int main()
 {
-	Listing4_33();
+	Listing4_37();
+}
+
+void Listing4_37()
+{
+	SimpleString a{ 50 };
+	a.append_line("We apologise for the");
+
+	SimpleString b{ 50 };
+	b.append_line("Last message");
+
+	a.print("a");
+	b.print("b");
+
+	b = std::move(a);
+	b.print("b");
 }
 
 void Listing4_33()
