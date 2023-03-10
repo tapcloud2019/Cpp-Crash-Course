@@ -41,6 +41,36 @@ struct TimerClass
 		return *this;
 	}
 
+	//move constructor
+	TimerClass(TimerClass&& other) noexcept : timestamp{ other.timestamp }
+	{
+		other.timestamp.wYear = 1900;
+		other.timestamp.wMonth = 1;
+		other.timestamp.wDay = 1;
+		other.timestamp.wHour = 1;
+		other.timestamp.wMinute = 1;
+		other.timestamp.wSecond = 1;
+		other.timestamp.wMilliseconds = 1;
+	}
+
+	//move assignment operator
+	TimerClass& operator=(TimerClass&& other) noexcept
+	{
+		if (this == &other) return *this;
+
+		timestamp = other.timestamp;
+
+		other.timestamp.wYear = 1900;
+		other.timestamp.wMonth = 1;
+		other.timestamp.wDay = 1;
+		other.timestamp.wHour = 1;
+		other.timestamp.wMinute = 1;
+		other.timestamp.wSecond = 1;
+		other.timestamp.wMilliseconds = 1;
+
+		return *this;
+	}
+
 private:
 	SYSTEMTIME timestamp;
 };
