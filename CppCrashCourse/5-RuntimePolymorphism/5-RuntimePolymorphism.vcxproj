@@ -131,6 +131,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="AccountDB.h" />
     <ClInclude Include="Bank.h" />
     <ClInclude Include="Logger.h" />
   </ItemGroup>
