@@ -1,6 +1,8 @@
 #include <iostream>
 #include <cstdio>
 #include <stdexcept>
+#include "SimpleUniquePointer.h"
+#include "Tracer.h"
 
 void Listing6_3();
 void carbon_thaw(const int&);
@@ -12,10 +14,27 @@ To narrow_cast(From value);
 void Listing6_11();
 template<typename T>
 T mean(const T* values, size_t length);
+void Listing6_15();
+void consumer(SimpleUniquePointer<Tracer>);
 
 int main()
 {
-	Listing6_11();
+	Listing6_15();
+}
+
+void Listing6_15()
+{
+	auto ptr_a = SimpleUniquePointer<Tracer>(new Tracer{ "ptr_a" });
+	printf("(main)ptr_a: 0x%p\n", ptr_a.get());
+
+	consumer(std::move(ptr_a));
+
+	printf("(main)ptr_a: 0x%p\n", ptr_a.get());
+}
+
+void consumer(SimpleUniquePointer<Tracer> consumer_ptr)
+{
+	printf("(cons)consumer_ptr: 0x%p\n", consumer_ptr.get());
 }
 
 void Listing6_11()
