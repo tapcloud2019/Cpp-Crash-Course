@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstdio>
 #include <stdexcept>
+#include <type_traits>
 #include "SimpleUniquePointer.h"
 #include "Tracer.h"
 
@@ -16,11 +17,29 @@ template<typename T>
 T mean(const T* values, size_t length);
 void Listing6_15();
 void consumer(SimpleUniquePointer<Tracer>);
+void Listing6_18();
+constexpr const char* as_str(bool x);
 
 int main()
 {
-	Listing6_15();
+	Listing6_18();
 }
+
+void Listing6_18()
+{
+	printf("%s\n", as_str(std::is_integral<int>::value));
+	printf("%s\n", as_str(std::is_integral<const int>::value));
+	printf("%s\n", as_str(std::is_integral<char>::value));
+	printf("%s\n", as_str(std::is_integral<uint64_t>::value));
+	printf("%s\n", as_str(std::is_integral<const int>::value));
+	printf("%s\n", as_str(std::is_integral<int&>::value));
+	printf("%s\n", as_str(std::is_integral<int*>::value));
+	printf("%s\n", as_str(std::is_integral<float>::value));
+	printf("%s\n", as_str(std::is_integral<double>::value));
+	printf("%s\n", as_str(std::is_integral<bool>::value));
+}
+
+constexpr const char* as_str(bool x) { return x ? "True" : "False"; }
 
 void Listing6_15()
 {
