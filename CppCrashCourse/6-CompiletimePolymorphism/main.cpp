@@ -4,6 +4,7 @@
 #include <type_traits>
 #include "SimpleUniquePointer.h"
 #include "Tracer.h"
+#include "Mean.h"
 
 void Listing6_3();
 void carbon_thaw(const int&);
@@ -19,10 +20,26 @@ void Listing6_15();
 void consumer(SimpleUniquePointer<Tracer>);
 void Listing6_18();
 constexpr const char* as_str(bool x);
+void Listing6_21();
 
 int main()
 {
-	Listing6_18();
+	Listing6_21();
+}
+
+void Listing6_21()
+{
+	const double nums_d[]{ 1.0f, 2.0f, 3.0f, 4.0f };
+	const auto result1 = mean(nums_d, 4);
+	printf("double: %f\n", result1);
+
+	const float nums_f[]{ 1.0, 2.0, 3.0, 4.0 };
+	const auto result2 = mean(nums_f, 4);
+	printf("float: %f\n", result2);
+
+	const size_t nums_c[]{ 1, 2, 3, 4 };
+	const auto result3 = mean(nums_c, 4);
+	printf("size_t: %d\n", result3);
 }
 
 void Listing6_18()

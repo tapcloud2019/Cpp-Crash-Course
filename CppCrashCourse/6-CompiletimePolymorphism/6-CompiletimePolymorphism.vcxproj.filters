@@ -26,5 +26,8 @@
     <ClInclude Include="Tracer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Mean.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
