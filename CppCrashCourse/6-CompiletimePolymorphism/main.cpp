@@ -5,6 +5,7 @@
 #include "SimpleUniquePointer.h"
 #include "Tracer.h"
 #include "Mean.h"
+#include "Highlander.h"
 
 void Listing6_3();
 void carbon_thaw(const int&);
@@ -21,10 +22,19 @@ void consumer(SimpleUniquePointer<Tracer>);
 void Listing6_18();
 constexpr const char* as_str(bool x);
 void Listing6_21();
+void Listing6_27();
 
 int main()
 {
-	Listing6_21();
+	Listing6_27();
+}
+
+void Listing6_27()
+{
+	Highlander connor;
+
+	auto connor_ptr = &connor;
+	auto connor_copy = get_copy(connor_ptr); //produces a compile error as the constraint is not satisfied
 }
 
 void Listing6_21()
@@ -39,7 +49,7 @@ void Listing6_21()
 
 	const size_t nums_c[]{ 1, 2, 3, 4 };
 	const auto result3 = mean(nums_c, 4);
-	printf("size_t: %d\n", result3);
+	printf("size_t: %zd\n", result3);
 }
 
 void Listing6_18()

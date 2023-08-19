@@ -29,5 +29,8 @@
     <ClInclude Include="Mean.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Highlander.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
