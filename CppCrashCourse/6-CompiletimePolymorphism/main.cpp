@@ -23,10 +23,45 @@ void Listing6_18();
 constexpr const char* as_str(bool x);
 void Listing6_21();
 void Listing6_27();
+void Listing6_29();
+template <size_t Index, typename T, size_t Length>
+T& get(T(&arr)[Length]);
+void Listing6_33();
 
 int main()
 {
-	Listing6_27();
+	Listing6_33();
+}
+
+void Listing6_33()
+{
+	int fib[]{ 1,1,2,0 };
+	printf("%d %d %d", get<0, int>(fib), get<1, int>(fib), get<2, int>(fib));
+	get<3, int>(fib) = get<1, int>(fib) + get<2, int>(fib);
+	printf(" %d", get<3, int>(fib));
+	//printf("%d", get<4, int>(fib));
+}
+
+template <size_t Index, typename T, size_t Length> //non type template parameters (1st and 3rd params)
+T& get(T(&arr)[Length])
+{
+	static_assert(Index < Length, "Out of bounds access");
+	return arr[Index];
+}
+
+void Listing6_29()
+{
+	const double nums_d[]{ 1.0f, 2.0f, 3.0f, 4.0f };
+	const auto result1 = mean_static_assert(nums_d, 4);
+	printf("double: %f\n", result1);
+
+	const float nums_f[]{ 1.0, 2.0, 3.0, 4.0 };
+	const auto result2 = mean_static_assert(nums_f, 4);
+	printf("float: %f\n", result2);
+
+	const size_t nums_c[]{ 1, 2, 3, 4 };
+	const auto result3 = mean_static_assert(nums_c, 4);
+	printf("size_t: %zd\n", result3);
 }
 
 void Listing6_27()
@@ -34,7 +69,7 @@ void Listing6_27()
 	Highlander connor;
 
 	auto connor_ptr = &connor;
-	auto connor_copy = get_copy(connor_ptr); //produces a compile error as the constraint is not satisfied
+	//auto connor_copy = get_copy(connor_ptr); //produces a compile error as the constraint is not satisfied
 }
 
 void Listing6_21()
