@@ -137,6 +137,7 @@
   <ItemGroup>
     <ClInclude Include="Highlander.h" />
     <ClInclude Include="Mean.h" />
+    <ClInclude Include="Mode.h" />
     <ClInclude Include="SimpleUniquePointer.h" />
     <ClInclude Include="Tracer.h" />
   </ItemGroup>
