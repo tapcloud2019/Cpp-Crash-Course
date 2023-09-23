@@ -29,10 +29,19 @@ template <size_t Index, typename T, size_t Length>
 T& get(T(&arr)[Length]);
 void Listing6_33();
 void Question6_1();
+void Question6_2();
 
 int main()
 {
-	Question6_1();
+	Question6_2();
+}
+
+void Question6_2()
+{
+	int values[10] = { 1,2,3,4,2,5,2,9,5,0 };
+	int mode = findModeT<int>(values, 10);
+
+	printf("\nThe mode is %d\n", mode);
 }
 
 void Question6_1()
