@@ -30,10 +30,19 @@ T& get(T(&arr)[Length]);
 void Listing6_33();
 void Question6_1();
 void Question6_2();
+void Question6_3();
 
 int main()
 {
-	Question6_2();
+	Question6_3();
+}
+
+void Question6_3()
+{
+	int values[10] = { 1,2,3,4,2,5,2,9,5,0 };
+	int mode = findModeWithArrayT<int,10>(values);
+
+	printf("\nThe mode is %d\n", mode);
 }
 
 void Question6_2()
