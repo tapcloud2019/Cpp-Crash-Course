@@ -7,6 +7,8 @@
 #include "Mean.h"
 #include "Highlander.h"
 #include "Mode.h"
+#include "Logger.h"
+#include "Bank.h"
 
 void Listing6_3();
 void carbon_thaw(const int&);
@@ -30,14 +32,24 @@ T& get(T(&arr)[Length]);
 void Listing6_33();
 void Question6_1();
 void Question6_2();
-void Question6_3();
+void Question6_4();
+void Question6_5();
 
 int main()
 {
-	Question6_3();
+	Question6_5();
 }
 
-void Question6_3()
+void Question6_5()
+{
+	ConsoleLogger logger("Finished transaction");
+	Bank bank;
+	bank.set_logger(&logger);
+	bank.make_transfer<long>(1234, 2345, 5000);
+	bank.make_transfer<long>(2345, 3456, 3500);
+}
+
+void Question6_4()
 {
 	int values[10] = { 1,2,3,4,2,5,2,9,5,0 };
 	int mode = findModeWithArrayT<int,10>(values);
