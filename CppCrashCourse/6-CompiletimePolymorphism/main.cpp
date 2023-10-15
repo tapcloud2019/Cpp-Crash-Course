@@ -9,6 +9,7 @@
 #include "Mode.h"
 #include "Logger.h"
 #include "Bank.h"
+#include "AccountDB.h"
 
 void Listing6_3();
 void carbon_thaw(const int&);
@@ -33,18 +34,26 @@ void Listing6_33();
 void Question6_1();
 void Question6_2();
 void Question6_4();
-void Question6_5();
+void Question6_5_6();
 
 int main()
 {
-	Question6_5();
+	Question6_5_6();
 }
 
-void Question6_5()
+void Question6_5_6()
 {
 	ConsoleLogger logger("Finished transaction");
-	Bank bank;
+	InMemoryAccountDB in_mem_accountDB;
+	Bank<InMemoryAccountDB> bank;
 	bank.set_logger(&logger);
+	bank.set_accountDB(&in_mem_accountDB);
+	bank.retrieve_amount(1234);
+	bank.retrieve_amount(2345);
+	bank.retrieve_amount(3456);
+	bank.set_amount(1234, 1000000);
+	bank.set_amount(2345, 1500000);
+	bank.set_amount(3456, 1800000);
 	bank.make_transfer<long>(1234, 2345, 5000);
 	bank.make_transfer<long>(2345, 3456, 3500);
 }

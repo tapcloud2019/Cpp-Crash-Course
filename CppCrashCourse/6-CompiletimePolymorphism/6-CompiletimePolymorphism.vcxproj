@@ -135,6 +135,7 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AccountDB.h" />
     <ClInclude Include="Bank.h" />
     <ClInclude Include="Highlander.h" />
     <ClInclude Include="Logger.h" />
