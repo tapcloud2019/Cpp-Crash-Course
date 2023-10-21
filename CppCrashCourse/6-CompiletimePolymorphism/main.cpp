@@ -33,12 +33,13 @@ T& get(T(&arr)[Length]);
 void Listing6_33();
 void Question6_1();
 void Question6_2();
+void Question6_3();
 void Question6_4();
 void Question6_5_6();
 
 int main()
 {
-	Question6_5_6();
+	Question6_3();
 }
 
 void Question6_5_6()
@@ -62,6 +63,17 @@ void Question6_4()
 {
 	int values[10] = { 1,2,3,4,2,5,2,9,5,0 };
 	int mode = findModeWithArrayT<int,10>(values);
+
+	printf("\nThe mode is %d\n", mode);
+}
+
+void Question6_3()
+{
+	int values[10] = { 1,2,3,4,2,5,2,9,5,0 };
+	int mode = findModeConcept<int>(values, 10);
+
+	//double valuesD[10] = { 1.0, 2.0, 3.0, 4.0, 2.0, 5.0, 2.0, 9.0, 5.0, 0.0 };
+	//int mode = findModeConcept(valuesD, 10); //integral constraint not satisfied
 
 	printf("\nThe mode is %d\n", mode);
 }
