@@ -1,5 +1,6 @@
 #include <cstdio>
 #include <limits>
+#include <cstdint>
 #include "CheckedInteger.h"
 #include "Heap.h"
 #include "Point.h"
@@ -12,10 +13,62 @@ Heap heap;
 //void operator delete(void* p);
 void Listing7_6();
 void Listing7_7();
+void Listing7_8();
+void Listing7_9();
+void print_addr(void*);
+void Listing7_10();
+void Listing7_11();
+void Listing7_12();
 
 int main()
 {
-	Listing7_7();
+	Listing7_12();
+}
+
+void Listing7_12()
+{
+	int64_t b = std::numeric_limits<int64_t>::max();
+	int32_t c(b); //compiler abides without braced intialiser
+
+	if (c != b) printf("Narrowing conversion. Fail!\n");
+}
+
+void Listing7_11()
+{
+	int32_t a = 100;
+	int64_t b{ a }; //braced initalisation ensures safe, non narrowing conversions
+
+	if (a == b) printf("Non narrowing conversion. Pass!\n");
+
+	//int32_t c{ b }; //compile error; fails braced initialisation non narrowing requirement
+}
+
+void Listing7_10()
+{
+	int x{};
+	print_addr(&x);
+	print_addr(nullptr);
+}
+
+void print_addr(void* x)  //pointers implicitly convert to void*
+{
+	printf("0x%p\n", x);
+}
+
+void Listing7_9()
+{
+	double x = std::numeric_limits<float>::max(); //safe (float to double)
+	long double y = std::numeric_limits<double>::max(); //safe (double to long double)
+	float z = std::numeric_limits<long double>::max(); //undefined behaviour (long double to float)
+	printf("x: %g\ny:%Lg\nz:%g", x, y, z);
+}
+
+void Listing7_8()
+{
+	//0b111111111 = 511
+	uint8_t x = 0b111111111; //255 for unsigned 8 bit integer
+	int8_t y = 0b111111111; //implementation dependent for signed; -1 on Win 10 x64; Use braced initialisation {} to avoid narrowing conversions
+	printf("x: %u\ny: %d\n", x, y);
 }
 
 void Listing7_7()
