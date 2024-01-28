@@ -19,10 +19,42 @@ void print_addr(void*);
 void Listing7_10();
 void Listing7_11();
 void Listing7_12();
+void Listing7_13();
+void trainwreck(const char*);
+void Listing7_14();
+void trainwreck2(const char*);
 
 int main()
 {
-	Listing7_12();
+	//Listing7_14();
+}
+
+void Listing7_14()
+{
+	auto ezra = "Ezra";
+	printf("Before trainwreck: %s\n", ezra);
+	trainwreck2(ezra);
+	printf("After trainwreck: %s\n", ezra);
+}
+
+void trainwreck2(const char* read_only)
+{
+	//auto as_unsigned = reinterpret_cast<unsigned char*>(read_only); //compile error
+	//*as_unsigned = 'b'; 
+}
+
+void Listing7_13()
+{
+	auto ezra = "Ezra";
+	printf("Before trainwreck: %s\n", ezra);
+	trainwreck(ezra);
+	printf("After trainwreck: %s\n", ezra);
+}
+
+void trainwreck(const char* read_only)
+{
+	auto as_unsigned = (unsigned char*)read_only;
+	*as_unsigned = 'b'; //memory access violation on read-only memory. Crashes
 }
 
 void Listing7_12()
